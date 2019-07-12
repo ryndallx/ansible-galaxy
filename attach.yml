@@ -1,0 +1,7 @@
+---
+- name: boxfuse configuration
+  hosts: slave2
+  become: yes
+
+  roles:
+   - boxfuse

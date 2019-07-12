@@ -1,0 +1,15 @@
+---
+# tasks file for boxfuse
+- name: Update apt cache
+  apt:
+   update_cache: yes
+
+- name: Install tomcat
+  apt:
+   name: tomcat8
+   state: present
+
+- name: Copy artifact
+  copy: src=hello-1.0.war dest={{ dest_dir }}/hello-1.0.war mode=0664
+  notify:
+    - restart tomcat
